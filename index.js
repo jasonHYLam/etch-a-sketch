@@ -1,10 +1,13 @@
 const divContainer = document.querySelector("#divContainer");
 
-for (let i = 1; i <= 16; i++) {
+createGrid(16)
+function createGrid(gridLength) {
+
+for (let i = 1; i <= gridLength; i++) {
     const row = document.createElement("div");
     row.className = "row";
 
-    for (let j = 1; j <= 16; j++) {
+    for (let j = 1; j <= gridLength; j++) {
         const square = document.createElement("div");
         square.className = "square";
         square.innerText = j
@@ -12,6 +15,7 @@ for (let i = 1; i <= 16; i++) {
     }
     divContainer.appendChild(row);
 
+}
 }
 
 const allSquares = document.querySelectorAll(".square");
@@ -25,5 +29,10 @@ allSquares.forEach(e => {
 const button = document.querySelector("#setSizeButton");
 
 button.addEventListener('click', function(event) {
-    console.log(event);
+    setGridSize();
 });
+
+function setGridSize() {
+    let gridSize = prompt("Please set the size of the grid (Max size is 100)");
+    createGrid(gridSize);
+}
