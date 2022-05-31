@@ -1,10 +1,3 @@
-    const container = document.querySelector('#container');
-    const content = document.createElement('div');
-    content.classList.add('content');
-    content.textContent = 'This is the glorious text-content!';
-    
-    container.appendChild(content);
-
 const divContainer = document.querySelector("#divContainer");
 
 for (let i = 1; i <= 16; i++) {
@@ -26,6 +19,11 @@ const allSquares = document.querySelectorAll(".square");
 allSquares.forEach(e => {
     e.addEventListener('mouseover',function(event) {
         event.target.style.background = "black";
-    })
+    });
 });
 
+const button = document.querySelector("#setSizeButton");
+
+button.addEventListener('click', function(event) {
+    console.log(event);
+});
