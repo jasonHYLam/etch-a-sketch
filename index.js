@@ -26,7 +26,7 @@ function createGrid(gridLength) {
         for (let j = 1; j <= gridLength; j++) {
             const square = document.createElement("div");
             square.className = "square";
-            square.style.border = 'solid';
+            // square.style.border = 'solid';
             // square.innerText= 'hahaiha! ';
             row.appendChild(square);
         }
@@ -36,7 +36,10 @@ function createGrid(gridLength) {
 
 
 function setGridSize() {
-    let gridSize = prompt("Please set the size of the grid (Max size is 100)");
+    let gridSize = 101;
+    while (gridSize > 100 || isNaN(gridSize)) {
+        gridSize = prompt("Please set the size of the grid (Max size is 100)");
+    }
     removeGrid();
     createGrid(gridSize);
     establishHover();
@@ -51,3 +54,15 @@ const button = document.querySelector("#setSizeButton");
 button.addEventListener('click', function(event) {
     setGridSize();
 });
+
+let randomColour = Math.random() * 0xFFFFFF;
+
+console.log(randomColour);
+randomColour = Math.floor(randomColour);
+console.log(randomColour);
+randomColour = randomColour.toString(16);
+console.log(randomColour);
+randomColour = randomColour.padStart(6,0);
+console.log(randomColour);
+
+button.style.backgroundColor = randomColour;
