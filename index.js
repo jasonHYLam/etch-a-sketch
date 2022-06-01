@@ -4,8 +4,10 @@ let allSquares = document.querySelectorAll(".square");
 
 allSquares.forEach(e => {
     e.addEventListener('mouseover',function(event) {
-        // event.target.style.background = "black";
-        event.target.style.background = assignRandomColour();
+        if (!event.target.classList.contains("hovered")) {
+            event.target.style.background = assignRandomColour();
+            event.target.classList.add("hovered");
+        }
     });
 });
 const divContainer = document.querySelector("#divContainer");
