@@ -4,7 +4,8 @@ let allSquares = document.querySelectorAll(".square");
 
 allSquares.forEach(e => {
     e.addEventListener('mouseover',function(event) {
-        event.target.style.background = "black";
+        // event.target.style.background = "black";
+        event.target.style.background = assignRandomColour();
     });
 });
 const divContainer = document.querySelector("#divContainer");
@@ -55,14 +56,6 @@ button.addEventListener('click', function(event) {
     setGridSize();
 });
 
-let randomColour = Math.random() * 0xFFFFFF;
-
-console.log(randomColour);
-randomColour = Math.floor(randomColour);
-console.log(randomColour);
-randomColour = randomColour.toString(16);
-console.log(randomColour);
-randomColour = randomColour.padStart(6,0);
-console.log(randomColour);
-
-button.style.backgroundColor = randomColour;
+function assignRandomColour() {
+    return "#" + Math.floor(Math.random() * 0xFFFFFF).toString(16).padStart(6,0);
+}
