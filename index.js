@@ -36,8 +36,6 @@ function createGrid(gridLength) {
         for (let j = 1; j <= gridLength; j++) {
             const square = document.createElement("div");
             square.className = "square";
-            // square.style.border = 'solid';
-            // square.innerText= 'hahaiha! ';
             row.appendChild(square);
         }
         divContainer.appendChild(row);
@@ -82,6 +80,7 @@ function darken(hexColour, ogColour) {
     var oG = parseInt(ogColour.substring(3,5), 16);
     var oB = parseInt(ogColour.substring(5,7), 16);
 
+    // subtract 10% of the original colour from the new colour
     R = parseInt(R - (oR * 0.1));
     G = parseInt(G - (oG * 0.1));
     B = parseInt(B - (oB * 0.1));
